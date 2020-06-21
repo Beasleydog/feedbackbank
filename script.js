@@ -53,6 +53,8 @@ tempResultText.style.border="#6aa84f4f solid";
 tempResultText.style.padding="5px 5px";
 tempResultText.style.borderRadius="5px";
 tempResultText.style.marginBottom="15px";
+                    tempResultText.style.cursor = "pointer";
+
 tempResultText.style.maxWidth="500px";
 tempResultText.style.overflow="hidden";
         tempResult.appendChild(tempResultText);
