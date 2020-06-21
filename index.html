@@ -10,12 +10,15 @@
     <title>The Feedback Bank</title>
     
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="https://www.thefeedbackbank.com/style.css">
+    <link rel="stylesheet" href="/style.css">
     
     <!-- import the webpage's javascript file -->
-    <script src="https://www.thefeedbackbank.com/script.js" defer></script>
+    <script src="/script.js" defer></script>
   </head>  
   <body>
+    <div id="s" style="display:none;">
+      
+    </div>
           <dv id="blur"></dv>
 
     <div id="alert">
@@ -36,8 +39,32 @@ New content will be highlighted here weekly.
         OK
       </div>
     </div>
+    <div id="black">
+      
+    </div>
     <div id="comment">
       &#43
+    </div>
+    <div id="search">
+      🔍
+    </div>
+    <div id="searchBox">
+  
+      <div id="searchheader">
+            <div id="closes">
+        &#10006
+      </div>
+        <h1>
+          Search
+        </h1>
+      </div>
+      <div id="loading">
+        Loading...
+      </div>
+      <input id="searchBar" style="display:none;">
+      <table id="results">
+        
+      </table>
     </div>
     <div id="addComment">
       <iframe name="hidden" style="display:none;" onload="if(submitted)  {document.getElementById('addComment').style.display='none';}"></iframe>
@@ -67,7 +94,7 @@ New content will be highlighted here weekly.
           <input name="entry.1727411038" type="text" />
 <br>
      <br>
-          <input id="url" style="opacity:0;position:absolute;left:0px;" name="entry.691930654" type="text" readonly="readonly" required/>
+          <input id="url" style="opacity:0;position:absolute;left:0px;" name="entry.691930654" type="text" required readonly/>
        <label>Feedback</label><br>
                    <textarea id="feedbacktext" name="entry.9108290" required ></textarea>
 
