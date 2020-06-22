@@ -24,12 +24,21 @@ document.getElementById("s").innerHTML = t;
   })
 })
 })
+
+var tableRows = [];
+var searchTerms = [];
+
 document.getElementById("searchBar").oninput = function(){
+  searchTerms = document.getElementById("searchBar").value.split(" ").filter(function(e){return e});
+  // searchTerms.filter(function(x){
+  //         return x!=""
+  //       });
   if (document.getElementById("searchBar").value!=""){
 document.getElementById("results").innerHTML = "";
   comments.forEach(function(sheet){
     sheet.com.forEach(function(ec){
-      if (ec.t.toUpperCase().indexOf(document.getElementById("searchBar").value.toUpperCase())!=-1){
+      if (document.getElementById("results").children.length<10){
+      if (ec.t.toUpperCase().indexOf(searchTerms[0].toUpperCase())!=-1){
         // if (ec[ec.toUpperCase().indexOf(document.getElementById("search").value.toUpperCase())+1+document.getElementById("search").value.length]=="."||ec[ec.toUpperCase().indexOf(document.getElementById("search").value.toUpperCase())+1+document.getElementById("search").value.length]==" "){
         // if (ec[ec.toUpperCase().indexOf(document.getElementById("search").value.toUpperCase())-1]==" "){
         var tempResult = document.createElement("tr");
@@ -48,23 +57,36 @@ document.getElementById("results").innerHTML = "";
     document.getElementById("results").innerHTML = "";
 
         }
-        tempResultText.innerHTML= ec.t.replace(new RegExp(document.getElementById("searchBar").value, "gi"),"<b>"+document.getElementById("searchBar").value+"</b>");
+        tempResultText.innerHTML= ec.t.replace(new RegExp(searchTerms[0], "gi"),"<b>"+searchTerms[0]+"</b>");
 tempResultText.style.border="#6aa84f4f solid";
 tempResultText.style.padding="5px 5px";
 tempResultText.style.borderRadius="5px";
+        tempResultText.style.cursor = "pointer";
 tempResultText.style.marginBottom="15px";
-                    tempResultText.style.cursor = "pointer";
-
 tempResultText.style.maxWidth="500px";
 tempResultText.style.overflow="hidden";
         tempResult.appendChild(tempResultText);
         document.getElementById("results").appendChild(tempResult);
+        if (searchTerms.length>1){
+        searchTerms.every(function(term,i){
+        if (tempResult.innerText.toUpperCase().indexOf(term.toUpperCase())!=-1){
+          tempResultText.innerHTML= tempResultText.innerHTML.replace(new RegExp(term, "gi"),"<b>"+term+"</b>");
+          return true;
+        }else{
+          tempResultText.remove();
+          return false;
+        }
+        })
+        }
+        
         
         // }
         // }
       }
+    }
     })
   })
+   
   }else{
     document.getElementById("results").innerHTML = "";
 
