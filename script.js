@@ -86,7 +86,12 @@ tempResultText.style.overflow="hidden";
     }
     })
   })
-   
+   if (document.getElementById("results").innerText.replace(/\n/gi,"").length>0){
+     document.getElementById("noResults").style.display = "none";
+   }else{
+     document.getElementById("noResults").style.display = "block";
+     
+   }
   }else{
     document.getElementById("results").innerHTML = "";
 
@@ -145,6 +150,9 @@ document.getElementById("comment").onclick = function(){
 }
 document.getElementById("search").onclick = function(){
   document.getElementById("searchBox").style.display = "block";
+  document.getElementById("searchBar").value = "";
+       document.getElementById("noResults").style.display = "none";
+
 }
 
 
@@ -153,6 +161,10 @@ document.getElementById("close").onclick = function(){
 }
 document.getElementById("closes").onclick = function(){
   document.getElementById("searchBox").style.display = "none";
+    document.getElementById("searchBar").value = "";
+       document.getElementById("noResults").style.display = "none";
+
+
 }
 
 document.getElementById("ok").onclick = function(){
