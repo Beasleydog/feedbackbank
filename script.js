@@ -73,7 +73,7 @@ tempResultText.style.overflow="hidden";
           tempResultText.innerHTML= tempResultText.innerHTML.replace(new RegExp(term, "gi"),"<b>"+term+"</b>");
           return true;
         }else{
-          tempResultText.remove();
+          tempResult.remove();
           return false;
         }
         })
