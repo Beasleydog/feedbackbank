@@ -138,6 +138,17 @@ function fakeNotif(a) {
     }, 5000);
   }
 
+window.onload = function(){
+var url = new URL(location.href)
+if (url.hash.replace("#","")=="comment"){
+  console.log("COMMENT");
+   document.getElementById("blur").remove();
+document.getElementById("alert").remove();
+  document.getElementById("comment").click();
+}
+}
+
+
 
 
 setTimeout(function(){
