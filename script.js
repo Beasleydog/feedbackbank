@@ -1,3 +1,15 @@
+//analytics stuff
+if (location.href=="https://www.thefeedbackbank.com/"){
+var newUser = new FormData();
+newUser.append('status',1);
+navigator.sendBeacon("https://script.google.com/macros/s/AKfycbxZ26hNectsUJIQEBgVwoo2YVGRyTEjr4zPImg-G4pLL0_d7XA/exec?status=1",newUser);
+
+window.addEventListener("unload", function logData() {
+  var leaveUser = new FormData();
+leaveUser.append('status',0);
+ navigator.sendBeacon("https://script.google.com/macros/s/AKfycbxZ26hNectsUJIQEBgVwoo2YVGRyTEjr4zPImg-G4pLL0_d7XA/exec",leaveUser);
+});
+}
 //search stuff
 var comments = [];
 fetch("https://script.google.com/macros/s/AKfycbygqcvjRdCgOUAC01x0CAoVKLG0R4eUpP1Gc7vZp6Ra2oMKJ2C-/exec").then(function(r){
@@ -149,7 +161,39 @@ document.getElementById("alert").remove();
 }
 
 
-
+var alertOptions = [`      <h1>
+        Welcome to The Feedback Bank!
+      </h1>
+      
+Explore, download/copy comments, adapt for use, contribute!
+<br>
+      <br>
+New content will be highlighted here weekly.
+      <br>
+      <br>
+      <img src="https://cdn.pixabay.com/photo/2016/11/15/07/55/feedback-1825508_960_720.jpg" style="width:30%">
+      <div id="ok">
+        OK
+      </div>`,`<h1>
+        Welcome to The Feedback Bank!
+      </h1>
+Click <a href="https://chrome.google.com/webstore/detail/feedback-finder/keljfallljoncbahaaibdjdbbffhgcip" target="_blank">Here</a> to download the “Feedback Finder” Chrome Extension. Search for comments. Copy and paste with one click.
+<br>
+<br>
+<br>
+<b style="color:#e67d0f;">Favorite</b> Quick Links <b>(Right Click)</b> to pin them to the top of your right-side tool bar.
+<br>
+<br>
+<br>
+New “link-only” columns in sheets with external links.
+<br>
+<br>
+<br>
+Additional comments added to multiple sheets.
+      <br>
+        <div id="ok">
+        OK
+      </div>`]
 
 setTimeout(function(){
   document.getElementById("alert").style.opacity="1";
@@ -173,12 +217,20 @@ var spamFav = false;
 var linkOrder = [...document.getElementsByClassName("link")].map(function(x){
 return x.id
 })
+if (localStorage.getItem("ca")){
+  document.getElementById("alert").innerHTML = alertOptions[Number(localStorage.getItem("ca"))%alertOptions.length];
+localStorage.setItem("ca",Number(localStorage.getItem("ca"))+1)
+}else{
+localStorage.setItem("ca",0);
+    document.getElementById("alert").innerHTML = alertOptions[0];
+
+}
 if (localStorage.getItem("favorites")){
   favorites = JSON.parse(localStorage.getItem("favorites"));
 }
 favorites.forEach(function(x){
 document.getElementById(x).className = "favlink";
-  document.getElementById("links").insertBefore(document.getElementById(x),document.getElementById("links").children[0]);
+  document.getElementById("links").insertBefore(document.getElementById(x),document.getElementById("links").children[1]);
 })
  document.addEventListener('contextmenu', function(evt) { 
   evt.preventDefault();
@@ -191,7 +243,7 @@ quicklinks.forEach(function(x){
       spamFav = true;
       if (x.className == "link"){
         x.className="favlink";
-          document.getElementById("links").insertBefore(x,document.getElementById("links").children[0]);
+          document.getElementById("links").insertBefore(x,document.getElementById("links").children[1]);
         favorites.push(x.id);
         fetch("https://script.google.com/macros/s/AKfycbygHzomWh5yNx7oa1Wj4UkclpUy0OAcxF-LBnXOTk-k3i78avk/exec?id="+x.id+"&up=1").then(function(){
                     spamFav = false;
