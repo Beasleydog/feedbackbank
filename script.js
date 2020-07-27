@@ -340,7 +340,9 @@ document.getElementById("alert").remove();
 document.getElementById("home").onclick = function(){
   document.getElementById("sheet").src = "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?usp=sharing&rm=minimal";
 }
-
+document.getElementById("outtemp").onclick = function(){
+  document.getElementById("sheet").src="https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=127834789"
+}
 document.getElementById("apa").onclick = function(){
   document.getElementById("sheet").src = "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=0";
 }
