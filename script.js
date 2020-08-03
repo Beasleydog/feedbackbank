@@ -317,7 +317,9 @@ quicklinks.forEach(function(x){
 document.getElementById("close").onclick = function(){
   document.getElementById("addComment").style.display = "none";
 }
-
+document.getElementById("closesss").onclick = function(){
+  document.getElementById("feedbackMaker").style.display = "none";
+}
 document.getElementById("closes").onclick = function(){
   document.getElementById("searchBox").style.display = "none";
     document.getElementById("searchBar").value = "";
@@ -325,6 +327,14 @@ document.getElementById("closes").onclick = function(){
 
 
 }
+  document.getElementById("maker").onclick = function(){
+    document.getElementById("feedbackMaker").style.display = "block";
+      result.innerText=stname.value+" "+comp.value+" "+time.value+" "+eng.value+" "+crit.value+" "+artic.value+" "+snhu.value+" "+legalcit.value+" "+wrap.value;
+  resultC.value=stname.value+" "+comp.value+" "+time.value+" "+eng.value+" "+crit.value+" "+artic.value+" "+snhu.value+" "+legalcit.value+" "+wrap.value;
+    setTimeout(function(){
+    makerBlur.style.display = "none";
+      },50)
+  }
 
 document.getElementById("ok").onclick = function(){
     document.getElementById("alert").style.opacity="0";
@@ -392,4 +402,30 @@ document.getElementById("meme").onclick = function(){
 document.getElementById("strat").onclick = function(){
   document.getElementById("sheet").src = "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=471291255";
 }
+}
+
+
+[...document.querySelectorAll("select")].forEach(function(x){
+
+  x.onblur= function(){
+        makerBlur.style.display = "none";
+
+  }
+  x.oninput = function(){
+    setTimeout(function(){
+        makerBlur.style.display = "none";
+},50);
+    document.getElementById("copyFeedback").innerText = "Copy Feedback"
+  result.innerText=stname.value+" "+comp.value+" "+time.value+" "+eng.value+" "+crit.value+" "+artic.value+" "+snhu.value+" "+legalcit.value+" "+wrap.value;
+  resultC.value=comp.value+" "+time.value+" "+eng.value+" "+crit.value+" "+artic.value+" "+wrap.value;
+}
+})
+document.getElementById("copyFeedback").onclick = function(){
+  document.getElementById("resultC").select();
+  document.execCommand("copy");
+  this.innerText = "Copied!"
+}
+window.onfocus = function(){
+          makerBlur.style.display = "none";
+
 }
