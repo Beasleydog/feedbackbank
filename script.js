@@ -338,7 +338,10 @@ document.getElementById("closes").onclick = function(){
 }
   document.getElementById("maker").onclick = function(){
     document.getElementById("feedbackMaker").style.display = "block";
+    if (location.href=="https://www.thefeedbackbank.com/"){
 
+navigator.sendBeacon("https://script.google.com/macros/s/AKfycbzypfdMnlDOJSYyxKIqcovydTR1HtS8FY2wxDVjE1j-eS3BfKI7/exec", JSON.stringify({ reason: "opened" }))
+  }
   }
 
 document.getElementById("ok").onclick = function(){
@@ -488,6 +491,10 @@ document.getElementById("copyFeedback").onclick = function(){
   document.getElementById("resultC").select();
   document.execCommand("copy");
   this.innerText = "Copied!"
+  if (location.href=="https://www.thefeedbackbank.com/"){
+
+  navigator.sendBeacon("https://script.google.com/macros/s/AKfycbzypfdMnlDOJSYyxKIqcovydTR1HtS8FY2wxDVjE1j-eS3BfKI7/exec", JSON.stringify({ reason: "copy",comment:document.getElementById("resultC").value}))
+}
 }
 })
 })
