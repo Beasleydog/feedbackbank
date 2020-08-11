@@ -204,23 +204,31 @@ Please view on a computer!
   window.onload = function() {
     var url = new URL(location.href);
     if (url.hash.replace("#", "") == "comment") {
+      if(document.getElementById("blur")){
       document.getElementById("blur").remove();
       document.getElementById("alert").remove();
+      }
       document.getElementById("comment").click();
     }
      if (url.hash.replace("#", "") == "images") {
+     if(document.getElementById("blur")){
       document.getElementById("blur").remove();
       document.getElementById("alert").remove();
+      }
       document.getElementById("imageSearchButton").click();
     }
         if (url.hash.replace("#", "") == "generator") {
+if(document.getElementById("blur")){
       document.getElementById("blur").remove();
       document.getElementById("alert").remove();
+      }
       document.getElementById("maker").click();
     }
          if (url.hash.replace("#", "") == "search") {
+     if(document.getElementById("blur")){
       document.getElementById("blur").remove();
       document.getElementById("alert").remove();
+      }
       document.getElementById("search").click();
     }
   };
