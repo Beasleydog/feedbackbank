@@ -11,7 +11,6 @@
     
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-    
     <!-- import the webpage's javascript file -->
     <script src="/script.js" defer></script>
   </head>  
@@ -47,38 +46,22 @@
           <dv id="blur"></dv>
 
     <div id="alert">
-      <h1>
-        Welcome to The Feedback Bank!
-      </h1>
-      <b class="orange">New Feature!</b>
-      <br>
-      <br>
-      <b>Narrative Discussion Board Feedback Generator</b> <br>(A Mad Libs + Standard Discussion Board Rubric Mashup)
-<br>
-      <br>
-      <br>
--   Click on the “Pencil and Paper” 📝 icon in the top left-hand corner of the bank.
-<br>
-<br>
--   Select as many phrases as you’d like (up to one from each category)
-<br><br>
 
--   Generate a block of narrative DB feedback for copy/paste, personalize as desired
-        <div id="ok">
-        OK
-      </div>
     </div>
     <div id="black">
       
     </div>
     <div id="comment">
-      &#43
+      &#43;
     </div>
     <div id="search">
-      🔍
+      &#128269;
     </div>
     <div id="maker">
-      📝
+      &#x1F4DD;
+    </div>
+    <div id="imageSearchButton">
+      &#128247;
     </div>
     <div id="searchBox">
   
@@ -151,6 +134,81 @@
         Loading...
       </div>
     </div>
+    <div id="imageSearch">
+      <div id="imageSearchHeader">
+        <div id="closessss">
+        &#10006
+      </div> 
+        <div id="memeMaker">
+            Create Meme
+        </div>
+        <h1>          
+        Image Search
+                  </h1>
+
+      </div>
+      <input id="imageSearchInput">
+        
+      </input>
+       <div id="imageSearchBody">
+         
+      </div>
+    </div>
+  <div id="memeMakerPage">
+    <div id="memeMakerBody">
+      
+    <canvas id="memeCanvas"></canvas>
+   <canvas id="textCanvas"></canvas>
+    <div id="topLabel">
+      Top Text
+    </div>
+      <div id="topXLabel">
+        X
+      </div>
+      <input type="number" id="topX">
+        <div id="topYLabel">
+        Y
+      </div>
+      <input type="number" id="topY">
+      <div id="bottomXLabel">
+        X
+      </div>
+      <input type="number" id="bottomX">
+        <div id="bottomYLabel">
+        Y
+      </div>
+      <input type="number" id="bottomY">
+    <input id="topText">
+     <div id="bottomLabel">
+      Bottom Text
+    </div>
+        <input id="bottomText">
+      <div id="colorLabel">
+      Text Color
+    </div>
+<input type="color" id="textColor" value="#ffffff">
+    <div id="sizeLabel">
+      Text Size
+    </div>
+    <input type="range" id="textSize" min="30" max="100" value="65">
+    <div id="downloadMeme">
+      Download Meme
+    </div>
+          </div>
+    <div id="closessssss">
+        &#10006
+      </div>
+<div id="memeMakerHeader">
+     
+  Meme
+  <br>
+  <br>
+  Maker
+  <div id="frameNote">
+    NOTE: Gifs only display<br> their first frame
+  </div>
+    </div>
+  </div>
   <iframe src="https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?usp=sharing&rm=minimal" id="sheet" >
     </iframe>
     <div id="quickCont">    
