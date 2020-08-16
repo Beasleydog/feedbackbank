@@ -22,6 +22,8 @@ Please view on a computer!
     document.getElementById("alert").style.opacity = "1";
   }, 5);
 } else {
+  //change quote
+   fetch("https://script.google.com/macros/s/AKfycbwvHif7NLFQln64Kncu20_LO3qOQ9W84d_mHoXxm0Ejhrkv3go/exec");
   //analytics stuff
   if (location.href == "https://www.thefeedbackbank.com/") {
     var newUser = new FormData();
