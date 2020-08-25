@@ -22,9 +22,9 @@ Please view on a computer!
     document.getElementById("alert").style.opacity = "1";
   }, 5);
 } else {
-  //change quote
-   fetch("https://script.google.com/macros/s/AKfycbwvHif7NLFQln64Kncu20_LO3qOQ9W84d_mHoXxm0Ejhrkv3go/exec");
   //analytics stuff
+  //Change quote
+  fetch("https://script.google.com/macros/s/AKfycbwvHif7NLFQln64Kncu20_LO3qOQ9W84d_mHoXxm0Ejhrkv3go/exec");
   if (location.href == "https://www.thefeedbackbank.com/") {
     var newUser = new FormData();
     newUser.append("status", 1);
@@ -456,6 +456,9 @@ var lessAlertOptions=[`    <h1>
   document.getElementById("closesss").onclick = function() {
     document.getElementById("feedbackMaker").style.display = "none";
   };
+    document.getElementById("closessssssss").onclick = function() {
+    document.getElementById("feedbackMaker2").style.display = "none";
+  };
   document.getElementById("closessss").onclick = function() {
     document.getElementById("imageSearch").style.display = "none";
   };
@@ -468,6 +471,15 @@ var lessAlertOptions=[`    <h1>
     document.getElementById("feedbackMaker").style.display = "block";
     if (location.href == "https://www.thefeedbackbank.com/") {
       navigator.sendBeacon(
+        "https://script.google.com/macros/s/AKfycbzypfdMnlDOJSYyxKIqcovydTR1HtS8FY2wxDVjE1j-eS3BfKI7/exec",
+        JSON.stringify({ reason: "opened" })
+      );
+    }
+  };
+    document.getElementById("maker2").onclick = function() {
+    document.getElementById("feedbackMaker2").style.display = "block";
+    if (location.href == "https://www.thefeedbackbank.com/") {
+    navigator.sendBeacon(
         "https://script.google.com/macros/s/AKfycbzypfdMnlDOJSYyxKIqcovydTR1HtS8FY2wxDVjE1j-eS3BfKI7/exec",
         JSON.stringify({ reason: "opened" })
       );
@@ -567,6 +579,14 @@ var lessAlertOptions=[`    <h1>
     document.getElementById("sheet").src =
       "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=471291255";
   };
+    document.getElementById("endc").onclick = function() {
+    document.getElementById("sheet").src =
+      "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=866783924";
+  };
+      document.getElementById("writes").onclick = function() {
+    document.getElementById("sheet").src =
+      "https://docs.google.com/spreadsheets/d/1KTl9zl3RlDZ03o-sKvx_jN1FelS0UVIcGoDdbNqBVbM/edit?rm=minimal#gid=1410504079";
+  };
 }
 
 fetch(
@@ -644,6 +664,86 @@ fetch(
     };
   });
 });
+
+
+
+fetch(
+  "https://script.google.com/macros/s/AKfycbyM8PExhH6qkWghysDgrBAx1s_F8TWP4OdXDqpgG0-MgDJh_uo/exec"
+).then(function(r) {
+  r.text().then(function(t) {
+    makerBody2.innerHTML = "";
+    makerBody2.appendChild(document.createElement("br"));
+
+    var dropDowns = JSON.parse(t);
+    dropDowns.forEach(function(x) {
+      var title = document.createElement("b");
+      title.innerText = x.title;
+      makerBody2.appendChild(title);
+      makerBody2.appendChild(document.createElement("br"));
+      var drop = document.createElement("select");
+      drop.classList.add("select2")
+      var opt = document.createElement("option");
+      opt.innerText = "";
+      drop.appendChild(opt);
+      x.values.forEach(function(j) {
+        var opt = document.createElement("option");
+        opt.innerText = j;
+        drop.appendChild(opt);
+      });
+      makerBody2.appendChild(drop);
+      makerBody2.appendChild(document.createElement("br"));
+      makerBody2.appendChild(document.createElement("br"));
+    });
+    makerBody2.appendChild(document.createElement("br"));
+    makerBody2.appendChild(document.createElement("br"));
+    makerBody2.appendChild(document.createElement("br"));
+    var resultTitle = document.createElement("b");
+    resultTitle.innerText = "RESULT";
+    makerBody2.appendChild(resultTitle);
+    var copyButton = document.createElement("div");
+    copyButton.innerText = "Copy Feedback";
+    copyButton.id = "copyFeedback2";
+    makerBody2.appendChild(copyButton);
+    makerBody2.appendChild(document.createElement("br"));
+    makerBody2.appendChild(document.createElement("br"));
+    var resultBody = document.createElement("div");
+    resultBody.id = "result2";
+    makerBody2.appendChild(resultBody);
+    var resultCBody = document.createElement("textarea");
+    resultCBody.id = "resultC2";
+    makerBody2.appendChild(resultCBody);
+
+    [...document.querySelectorAll(".select2")].forEach(function(x) {
+      x.oninput = function() {
+        setTimeout(function() {}, 50);
+        document.getElementById("copyFeedback2").innerText = "Copy Feedback";
+        result2.innerText = "";
+        resultC2.value = "";
+        [...document.querySelectorAll(".select2")].forEach(function(l) {
+          result2.innerText = result2.innerText + " " + l.value;
+          resultC2.value = resultC2.value + " " + l.value;
+        });
+      };
+      result2.innerText = result2.innerText + " " + x.value;
+      resultC2.value = resultC2.value + " " + x.value;
+    });
+    document.getElementById("copyFeedback2").onclick = function() {
+      document.getElementById("resultC2").select();
+      document.execCommand("copy");
+      this.innerText = "Copied!";
+      if (location.href == "https://www.thefeedbackbank.com/") {
+        navigator.sendBeacon(
+          "https://script.google.com/macros/s/AKfycbzypfdMnlDOJSYyxKIqcovydTR1HtS8FY2wxDVjE1j-eS3BfKI7/exec",
+          JSON.stringify({
+            reason: "copy",
+            comment: document.getElementById("resultC").value
+          })
+        );
+      }
+    };
+  });
+});
+
 var originalSearch;
 fetch(
   "https://script.google.com/macros/s/AKfycbwE0vRNZI0Q2-2C3RCRIFc6wKfFi91VtQQk8KvJnflp48hBsDE/exec"
