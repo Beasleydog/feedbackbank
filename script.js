@@ -233,6 +233,13 @@ if(document.getElementById("blur")){
       }
       document.getElementById("search").click();
     }
+             if (url.hash.replace("#", "") == "casebrief") {
+     if(document.getElementById("blur")){
+      document.getElementById("blur").remove();
+      document.getElementById("alert").remove();
+      }
+      document.getElementById("maker2").click();
+    }
   };
 
   var alertOptions = [
