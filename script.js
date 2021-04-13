@@ -819,7 +819,7 @@ function getDataUri(targetUrl, callback) {
     };
     reader.readAsDataURL(xhr.response);
   };
-  var proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  var proxyUrl = "https://cors.bridged.cc/";
   xhr.open("GET", proxyUrl + targetUrl);
   xhr.responseType = "blob";
   xhr.send();
